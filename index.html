@@ -4,34 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TypeGo</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="wrapper">
-    <div class="logo">Type<span class="accent">Go</span></div>
-  
-    <div class="main-content">
-      <div class="text-box" id="text-display"></div>
-  
-      <div class="history">
-        <h3>History</h3>
-        <ul id="history-list">
-          <!-- Історія тестів -->
-        </ul>
-      </div>
-    </div>
-  
-    <div class="stats">
-      <div>🕒 Time: <span class="timer"></span></div>
-      <div>⚡ Speed: <span class="speed"></span> WPM</div>
-      <div>❌ Errors: <span class="errors"></span></div>
-    </div>
-  
-    <button class="start button">🔁 Start Again</button>
+  <div class="container">
+    <header class="header">
+      <div class="logo">Type<span class="accent">Go</span></div>
+      <button class="theme-switch" id="theme-switch" aria-label="Switch theme"></button>
+    </header>
+    <main class="main-layout">
+      <section class="typing-area">
+        <div class="typing-box" id="text-display"></div>
+        <div class="controls">
+          <button class="start button">Start Again</button>
+        </div>
+      </section>
+      <aside class="side-panel">
+        <section class="stats-panel">
+          <div class="stat">
+            <span class="stat-label">Time</span>
+            <span class="timer stat-value"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Speed</span>
+            <span class="speed stat-value"></span>
+            <span class="stat-unit">WPM</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Errors</span>
+            <span class="errors stat-value"></span>
+          </div>
+        </section>
+        <section class="history-panel">
+          <h3 class="history-title">History</h3>
+          <ul id="history-list" class="history-list"></ul>
+        </section>
+      </aside>
+    </main>
   </div>
-  
-
   <script src="main.js"></script>
 </body>
 </html>
