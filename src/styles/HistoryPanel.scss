@@ -1,0 +1,48 @@
+@import './variables.scss';
+.history-panel {
+  background: $panel-bg-light;
+  border-radius: $border-radius;
+  box-shadow: none;
+  padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+  border: none;
+}
+.history-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  color: $text-light;
+  letter-spacing: 0.2px;
+}
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.history-list li {
+  font-size: 0.97rem;
+  color: $text-light;
+  background: none;
+  border-radius: 0;
+  padding: 0.55rem 0.7rem 0.55rem 1.1rem;
+  position: relative;
+  font-weight: 500;
+  transition: background 0.13s;
+  border-left: 3.5px solid transparent;
+}
+.history-list li.gold {
+  border-left: 3.5px solid #ffd700;
+  font-weight: 700;
+}
+.history-list li.silver {
+  border-left: 3.5px solid #bdbdbd;
+  font-weight: 600;
+}
+.history-list li.bronze {
+  border-left: 3.5px solid #cd7f32;
+  font-weight: 600;
+} 

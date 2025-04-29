@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+.timeup-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff;
+  color: $accent-color;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 1.1rem 2.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px 0 rgba(0,188,212,0.08);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.4s, transform 0.4s;
+  &.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+} 

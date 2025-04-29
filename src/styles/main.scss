@@ -1,0 +1,42 @@
+@import './variables.scss';
+@import './Header.scss';
+@import './TypingBox.scss';
+@import './Controls.scss';
+@import './StatsPanel.scss';
+@import './HistoryPanel.scss';
+@import './TimeUpMessage.scss';
+@import './TypingTrainer.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main, 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+  background: var(--background-light, #f7f7f9);
+  color: var(--text-light, #232323);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  min-height: 100vh;
+}
+
+.theme-dark {
+  --background-light: #181a1b;
+  --text-light: #e0e0e0;
+}
+.theme-light {
+  --background-light: #f7f7f9;
+  --text-light: #232323;
+}
+
+.main-layout:focus {
+  outline: none !important;
+  box-shadow: none !important;
+} 

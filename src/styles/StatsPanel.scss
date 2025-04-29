@@ -1,0 +1,33 @@
+@import './variables.scss';
+.stats-panel {
+  background: $panel-bg-light;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: $dim-light;
+}
+.stat-label {
+  min-width: 54px;
+  color: inherit;
+  font-size: 1rem;
+}
+.stat-value {
+  color: $text-light;
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+.stat-unit {
+  font-size: 0.95rem;
+  color: $dim-light;
+  margin-left: 2px;
+} 
