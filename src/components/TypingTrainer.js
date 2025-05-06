@@ -8,7 +8,7 @@ import { LocaleContext } from '../contexts/LocaleContext';
 import '../styles/TypingTrainer.scss';
 
 const getPhrases = async (locale) => {
-  const res = await fetch(`http://localhost:4000/api/phrases?lang=${locale}`);
+  const res = await fetch(`/api/phrases?lang=${locale}`);
   const data = await res.json();
   return data.phrases;
 };
@@ -28,6 +28,7 @@ const TypingTrainer = ({ t }) => {
   const duration = 60;
   const phrasesCount = 7;
   const typingBoxRef = useRef();
+  const [progressAnimating, setProgressAnimating] = useState(false);
 
   useEffect(() => {
     loadText();
@@ -133,6 +134,8 @@ const TypingTrainer = ({ t }) => {
     setCurrentIndex(0);
     setErrorCount(0);
     setTimeLeft(duration);
+    setProgressAnimating(false);
+    setTimeout(() => setProgressAnimating(true), 10);
   };
 
   const stopTest = () => {
@@ -142,12 +145,14 @@ const TypingTrainer = ({ t }) => {
     setCurrentIndex(0);
     setErrorCount(0);
     setTimeLeft(duration);
+    setProgressAnimating(false);
     loadText();
   };
 
   const finishTest = () => {
     setIsStarted(false);
     setIsTimeUp(true);
+    setProgressAnimating(false);
     const typedCharacters = userInput.length;
     const typedWords = typedCharacters / 5;
     const wpm = Math.round(typedWords);
@@ -167,7 +172,16 @@ const TypingTrainer = ({ t }) => {
       <section className="typing-area">
         <TypingBox text={text} userInput={userInput} currentIndex={currentIndex} />
         <div className="timer-progress">
-          <div className="timer-progress__bar" style={{ width: `${(timeLeft / duration) * 100}%` }} />
+          <div
+            className={`timer-progress__bar${progressAnimating ? ' animating' : ''}`}
+            style={progressAnimating ? {
+              width: '0%',
+              transition: `width ${duration}s linear, background 0.2s`
+            } : {
+              width: '100%',
+              transition: 'none'
+            }}
+          />
           <div className="timer-progress__time">
             <span className={`timer${timeLeft <= 10 && isStarted ? ' timer--pulse' : ''}`}>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</span>
           </div>
